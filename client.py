@@ -16,6 +16,10 @@ print("Connection Successful!")
 
 while True:
     message = input(">")
-    connection.sendall(message.encode())
+    try:
+        connection.sendall(message.encode())
+    except:
+        print("Couldn't find host! This is probably because you've been disconnected.")
+        quit()
 
 connection.close()
